@@ -86,6 +86,7 @@
                    :dependencies [[cider/piggieback "0.5.0"]
                                   [binaryage/devtools "1.0.0"]
                                   [ring/ring-mock "0.4.0"]
+                                  [instaparse "1.4.10"]
                                   [ring/ring-devel "1.8.1"]
                                   [prone "2020-01-17"]
                                   [figwheel-sidecar "0.5.20"]

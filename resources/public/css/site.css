@@ -1,12 +1,44 @@
 .body-container {
   font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
-  max-width: 640px;
+  max-width: 80vw;
   margin: 0 auto;
   padding-top: 72px;
   -webkit-font-smoothing: antialiased;
   font-size: 1.125em;
   color: #333;
   line-height: 1.5em;
+}
+
+
+/* ↓ targets the intermediary wrapper */
+.with-sidebar > * {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.5rem;
+  border: 3px solid green;
+}
+
+.with-sidebar > * > * {
+  /* ↓ applies to both elements */
+  margin: 0.5rem;
+}
+
+.sidebar {
+  flex-basis: 20rem;
+  flex-grow: 1;
+  border: 3px solid red;
+}
+
+.main {
+  /* ↓ grow from nothing */
+  flex-basis: 0;
+  border: 3px solid blue;
+  flex-grow: 999;
+  min-width: calc(50% - 1rem);
+}
+
+.yell {
+    background-color: yellow
 }
 
 h1, h2, h3 {

@@ -6,8 +6,20 @@
     ))
 
 
+(defn parsenode [cnt m]
+  (if (nil? (m :children))
+    [:p (:string m)]
+    [:details {:style {:margin-left (str cnt "rem")}} [:summary (:string m)] (map (partial parsenode (inc cnt)) (:children m))]
+  ))
+;(defn parse-n [m] (parsenode m 0))
+
 (defn divme [text] [:div text])
 ;
+(defn has-value [key value]
+  "Returns a predicate that tests whether a map contains a specific value"
+  (fn [m]
+    (= value (m key))))
+
 (defn nav [links]
   [:ul "AAAWWWW"
    (for [item links]

@@ -1,21 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="b95e448a-58e4-4393-aa24-424a52d61c88" name="Default Changelist" comment="" />
+    <list default="true" id="b95e448a-58e4-4393-aa24-424a52d61c88" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cljs/sitegen_reagent/scraps.cljs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__instaparse_1_3_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Leiningen__instaparse_1_4_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sitegen-reagent.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sitegen-reagent.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.rebel_readline_history" beforeDir="false" afterPath="$PROJECT_DIR$/.rebel_readline_history" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.clj" beforeDir="false" afterPath="$PROJECT_DIR$/project.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/public/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/public/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cljs/sitegen_reagent/app.cljs" beforeDir="false" afterPath="$PROJECT_DIR$/src/cljs/sitegen_reagent/app.cljs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cljs/sitegen_reagent/util.cljs" beforeDir="false" afterPath="$PROJECT_DIR$/src/cljs/sitegen_reagent/util.cljs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1dMc2IjgWYDZaHdTIuurZblUzhP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="GoToKeyword.includeLibraries" value="false" />
+    <property name="GoToNamespace.includeLibraries" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/cljs/sitegen_reagent" />
   </component>
   <component name="RecentsManager">
@@ -60,6 +96,17 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="479" y="91" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1592242501100">
       <screen x="0" y="23" width="1440" height="816" />
@@ -69,5 +116,13 @@
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.23.1440.816@0.23.1440.816" timestamp="1592249976009" />
+    <state x="1771" y="188" width="586" height="735" key="find.popup" timestamp="1592309601649">
+      <screen x="1440" y="23" width="1920" height="1177" />
+    </state>
+    <state x="1771" y="188" width="586" height="735" key="find.popup/1440.23.1920.1177/0.23.1440.816@1440.23.1920.1177" timestamp="1592309601649" />
+    <state x="1695" y="260" width="739" height="676" key="search.everywhere.popup" timestamp="1592309473430">
+      <screen x="1440" y="23" width="1920" height="1177" />
+    </state>
+    <state x="1695" y="260" width="739" height="676" key="search.everywhere.popup/1440.23.1920.1177/0.23.1440.816@1440.23.1920.1177" timestamp="1592309473430" />
   </component>
 </project>

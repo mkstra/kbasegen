@@ -9,6 +9,10 @@
   line-height: 1.5em;
 }
 
+.block-ref {
+background: yellow
+
+}
 
 /* ↓ targets the intermediary wrapper */
 .with-sidebar > * {

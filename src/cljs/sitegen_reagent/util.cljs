@@ -22,88 +22,6 @@
 
   )
 
-;(defn find-nest [nodes id]
-;  (for (n nodes)
-;    (if (= (:uid n) id)
-;      n
-;      find-nested (:c n) id )
-;  ))
-
-  ;(loop [x 10]
-  ;  (when (> x 1)
-  ;    (println x)
-  ;    (recur (- x 2))))
-
-;(defn find-nested [nodes id]
-;  (for [n nodes]
-;    (if (nil? (n :c ))
-;      nil
-;      (if (=(:uid n) id)
-;        n
-;        (find-nested (n :c ) id)
-;        )
-;      ) ))
-;
-;(defn finder [coll id]
-;  (for [n coll]
-;
-;  (if (= (:uid n) id)
-;    nil
-;    (finder (rest coll) id)) )
-;)
-;
-;( defn tag? [node tag]
-;    (= tag (get-in node [:c 0 :s])) )
-;
-;
-;(defn keeper [nodes]
-;  (for [n nodes]
-;    (if (nil? (n :c ))
-;      nil
-;      (if (=(get-in n [:c 0 :s]) "#[[public]]")
-;        n
-;        (keeper (n :c ))
-;    )
-;  ) ))
-;
-;(defn find-node [nodes uid]
-;  (for [n nodes]
-;    (if (nil? (n :c ))
-;      nil
-;      (if (=(:uid ) "#[[public]]")
-;        n
-;        (find-node (n :c ) "s")
-;        )
-;      ) ))
-
-(defn parsenode [cnt m]
-  (if (nil? (m :children))
-    [:p (:string m)]
-    [:details {:style {:margin-left (str cnt "rem")}} [:summary (or (:title m ) (:string m) )] (map (partial parsenode (inc cnt)) (:children m))]
-  ))
-;(defn parse-n [m] (parsenode m 0))
-
-(defn divme [text] [:div text])
-;
-(defn has-value [key value]
-  "Returns a predicate that tests whether a map contains a specific value"
-  (fn [m]
-    (= value (m key))))
-
-(defn nav [links]
-  [:ul "AAAWWWW"
-   (for [item links]
-     [:li (key item) "AA" (val item )])
-   ]
-  )
-
-(defn lister [items]
-  [:ul "asasas"
-   (for [item items]
-     ^{:key item} [:li "Item " item])]
-  )                     ;; ^{:key item} is for react indexing
-
-
 
 (def roamdata [{:string
                               "cells in most organisms have hundreds of different metabolic pathways, many interconnecting, forming networks of metabolic reactions. Albert-László Barabási and colleagues looked in detail at the structure of metabolic networks in forty-three different organisms and found that they all were “well fitted” by a power-law distribution—i.e., are scale free. ",
@@ -341,11 +259,136 @@
                 :edit-time 1592485434828,
                 :edit-email "strasser.ms@gmail.com"
                 }])
+
 ;
-;(defn get-tags)
+
+;(defn find-nest [nodes id]
+;  (for (n nodes)
+;    (if (= (:uid n) id)
+;      n
+;      find-nested (:c n) id )
+;  ))
+
+  ;(loop [x 10]
+  ;  (when (> x 1)
+  ;    (println x)
+  ;    (recur (- x 2))))
+
+;(defn find-nested [nodes id]
+;  (for [n nodes]
+;    (if (nil? (n :c ))
+;      nil
+;      (if (=(:uid n) id)
+;        n
+;        (find-nested (n :c ) id)
+;        )
+;      ) ))
 ;
-;;get all vals given key of collection
-;(defn get-text [coll]
-;  (map :string coll)
+;(defn finder [coll id]
+;  (for [n coll]
+;
+;  (if (= (:uid n) id)
+;    nil
+;    (finder (rest coll) id)) )
+;)
+;
+;( defn tag? [node tag]
+;    (= tag (get-in node [:c 0 :s])) )
+;
+;
+;(defn keeper [nodes]
+;  (for [n nodes]
+;    (if (nil? (n :c ))
+;      nil
+;      (if (=(get-in n [:c 0 :s]) "#[[public]]")
+;        n
+;        (keeper (n :c ))
+;    )
+;  ) ))
+;
+;(defn find-node [nodes uid]
+;  (for [n nodes]
+;    (if (nil? (n :c ))
+;      nil
+;      (if (=(:uid ) "#[[public]]")
+;        n
+;        (find-node (n :c ) "s")
+;        )
+;      ) ))
+
+
+(defn split-by [pred coll]
+  (lazy-seq
+    (when-let [s (seq coll)]
+      (let [!pred (complement pred)
+            [xs ys] (split-with !pred s)]
+        (if (seq xs)
+          (cons xs (split-by pred ys))
+          (let [skip (take-while pred s)
+                others (drop-while pred s)
+                [xs ys] (split-with !pred others)]
+            (cons (concat skip xs)
+                  (split-by pred ys))))))))
+
+(defn clip [s]
+  (subs s 2 ( - (count s) 2))
+  )
+(defn get-ref [word]                                        ;check for nils
+  (filter #(= (:uid %) word) roamdata)
+  )
+(defn get-str [w] (:string (first (get-ref (clip w)) ) ))
+(defn words [txt] (clojure.string/split txt #" "))
+
+(defn is-sentence [txt]
+  (> (count (words txt)) 1 )
+  )
+
+(defn special-hic [txt]
+  (if (is-sentence txt) [:p {:class "block-ref"} txt ] txt)
+  )
+
+
+(defn to-hiccup [words]
+  (for [w words]
+    (
+      (str special-hic w)
+      )
+    )
+  [:p (reduce (fn [w]) special-hic
+              words)] )
+;(defn ref-parse [txt]
+;  (-> txt
+;      replace-ref
+;      to-hiccup
+;    )
 ;  )
-;(defn get-attribute)
+
+(defn replace-ref [txt]
+  (map #(or (get-str %) %) (words txt ) ) )
+
+(defn parsenode [cnt m]
+  (if (nil? (m :children))
+    [:div (str ( :string m) "[:p Trottle]" )  [:span "tesstt"]]
+    [:details {:style {:margin-left (str cnt "rem")}} [:summary (or (:title m ) (:string m) )] (map (partial parsenode (inc cnt)) (:children m))]
+  ))
+;(defn parse-n [m] (parsenode m 0))
+
+(defn divme [text] [:div text])
+;
+(defn has-value [key value]
+  "Returns a predicate that tests whether a map contains a specific value"
+  (fn [m]
+    (= value (m key))))
+
+(defn nav [links]
+  [:ul "AAAWWWW"
+   (for [item links]
+     [:li (key item) "AA" (val item )])
+   ]
+  )
+
+(defn lister [items]
+  [:ul "asasas"
+   (for [item items]
+     ^{:key item} [:li "Item " item])]
+  )                     ;; ^{:key item} is for react indexing

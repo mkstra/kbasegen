@@ -1,12 +1,9 @@
 
 
 #TODOs
-* have an example #public node on ROAM first
-* then write the parser for it
 * then see if it can route (for now) on-fly created notes and pages -> see item-page
-
 * utils -> get-node, get-text, get-attrs
-*
+* abstract, *quotebacs
 * attrs aka links aka meta -> [a hrefs, sup, underline blue, underline green]
 * annotation and claim and certainty as (0 - 9)
 *
@@ -14,5 +11,4 @@
 
 Useless
 * relies-on:: ((XYZ))
-*
 * colored links (internal, external)

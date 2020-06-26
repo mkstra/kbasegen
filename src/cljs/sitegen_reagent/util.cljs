@@ -330,6 +330,10 @@
             (cons (concat skip xs)
                   (split-by pred ys))))))))
 
+(defn has-brackets [txt]
+  (clojure.string/includes? txt "((")
+  )
+
 (defn clip [s]
   (subs s 2 ( - (count s) 2))
   )
@@ -344,10 +348,19 @@
   )
 
 (defn special-hic [txt]
-  (if (is-sentence txt) [:p {:class "block-ref"} txt ] txt)
+  (if (is-sentence txt) [:span {:class "block-ref"} txt ] txt)
   )
 
+;parse-block as parse-node
+(defn parse-block [blockstr]
+  [:p (map #(if (has-brackets %) [:span {:class "block-ref"} (get-str %)] [:span %]) 
+             (map #(clojure.string/join " " %) (partition-by has-brackets (words blockstr))))
+   ]
+  )
 
+;; (def tester (nth (map words (map :string roamdata)) 2))
+;; 
+;; 
 (defn to-hiccup [words]
   (for [w words]
     (
@@ -368,8 +381,10 @@
 
 (defn parsenode [cnt m]
   (if (nil? (m :children))
-    [:div (str ( :string m) "[:p Trottle]" )  [:span "tesstt"]]
-    [:details {:style {:margin-left (str cnt "rem")}} [:summary (or (:title m ) (:string m) )] (map (partial parsenode (inc cnt)) (:children m))]
+    (parse-block (:string m) )
+    [:details {:style {:margin-left (str cnt "rem")} } 
+     [:summary (or (:title m ) (parse-block (:string m)) )] 
+     (map (partial parsenode (inc cnt)) (:children m))]
   ))
 ;(defn parse-n [m] (parsenode m 0))
 

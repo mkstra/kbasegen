@@ -3,7 +3,7 @@
     [reagent.core :as reagent :refer [atom]]
     [reagent.dom :as rdom]
     [reagent.session :as session]
-    [sitegen-reagent.util :refer [lister nav divme parsenode roamdata]]
+    [sitegen-reagent.util :refer [lister nav divme parsenode roamdata parse-block]]
     [json-html.core :refer [json->hiccup]]
     ;[instaparse.core :as insta]
 
@@ -45,19 +45,16 @@
    }
   )
 
-;(defn )
+
 
 (defn app []
   [:div
-    [:div {:class "with-sidebar"}
-     [:div
-
-      [:div {:class "main"} (map (partial parsenode 0 ) (filter :title (get-in @app-state [:json]) ) )  ]
+   ;(map parse-block (map :string roamdata))
+   [:div {:class "with-sidebar"}
+    [:div
+     [:div {:class "main"} (map (partial parsenode 0) (filter :title (get-in @app-state [:json])))]
       ;[:div {:class "main"} (map (fn [x] [:p (:string x)]) (get-in @app-state [:json :children] ))]
-      [:div {:class "sidebar"} "Sidebar"]
-      ]
-       ]
-   [:div {:class "yell"} "YOOOOOZOOO"]
-   ]
+     [:div {:class "sidebar"} "Sidebar"]]]
+   [:div {:class "yell"} "YOOOOOZOOO"]]
   )
 

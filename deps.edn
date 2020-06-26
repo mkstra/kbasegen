@@ -1,0 +1,9 @@
+{:aliases
+ {:nrepl-server {:extra-deps {org.clojure/tools.nrepl {:mvn/version "0.2.13"}
+                              cider/cider-nrepl {:mvn/version "0.19.0-SNAPSHOT"}
+                              refactor-nrepl {:mvn/version "2.3.1"}}
+                 :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
+  :nrepl-client {:extra-deps {org.clojure/tools.nrepl {:mvn/version "0.2.13"}
+                              cider/cider-nrepl {:mvn/version "0.19.0-SNAPSHOT"}
+                              refactor-nrepl {:mvn/version "2.3.1"}}
+                 :main-opts ["-m" "nrepl.cmdline" "--connect" "--host" "localhost" "--port"]}}}

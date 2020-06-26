@@ -22,4 +22,8 @@
 ;(get-in @app-state [:json :children]))
 ;(lister (range 3))
 ;[nav pages]
-;(json->hiccup (get-in @app-state [:json]) )
+;
+;
+;(json->hiccup (get-in @app-state [:json]))
+;
+;

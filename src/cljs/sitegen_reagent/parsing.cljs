@@ -8,7 +8,7 @@
   (clojure.string/split s #"\s+"))
 
 
-
+(+ 1 1)
 (defn get-public-node [root]
   ;extract public nodes for ((UID)) references 2) extract ((uid))s 3) filter
   []
@@ -17,6 +17,7 @@
 ;(defn resolve-block [uid] :string (get-public-node uid))
 ; rawroamtext -> intermediate -> parsedHiccup ->
 (defn hastag? [tag]
+  (+ 1 1)
   ;checks if a child has a #tag like #public ... to be able to link it
   )
 

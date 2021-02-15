@@ -24,6 +24,14 @@ And now <span class="roam-page">[Biosensing](biosensing)</span>
 
 
 
+<div class="roam-embed">
+
+
+What about this embedding?
+* ABC
+
+</div>
+
 ```javascript
 const a = 5
 ```
